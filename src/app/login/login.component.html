@@ -1,0 +1,77 @@
+<div class="container fade-in  ">
+  
+  <div class="card p-4 m-5 " style="width: 18rem; z-index: 200;">
+    <div class="card-body container">
+      <form class="needs-validation" #personForm="ngForm" novalidate>
+        <div class="m-3">
+          <h4 style="font-family: samim" class="card-title">
+            رستوران یام یام
+          </h4>
+        </div>
+        <div class="m-3">
+          <h6 style="font-family: samim" class="card-title">
+            <p>;)برای سفارش اول وارد شو</p>
+          </h6>
+        </div>
+        <div class="form-floating m-3 col" style="font-family: sans-serif">
+          <input
+          
+            [class.is-invalid]="this.person.invalid()"
+            (click)="this.person.invalid()"
+            class="form-control"
+            #name="ngModel"
+            name="username"
+            [(ngModel)]="person.userName"
+            type="text"
+            class="form-control"
+            minlength="3"
+            maxlength="10"
+            id="floatingInput"
+            placeholder="ali"
+          />
+          
+         <div class="text-danger ml-3"  style="font-size: small;" >
+          {{this.person.message}}
+         </div>
+        
+      <label for="validationCustom01" for="floatingInput">Username</label>
+        </div>
+
+        <div class="form-floating m-3 col" style="font-family: sans-serif">
+          <input
+            
+            [class.is-invalid]="this.person.invalid()"
+            (click)="this.person.invalid()"
+            class="form-control "
+            #name="ngModel"
+            name="loginPassword"
+            [(ngModel)]="person.password"
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="example:12345678"
+          />
+          <div class="text-danger ml-3"  style="font-size: small;"  >
+            {{this.person.passmessage}}
+           </div>
+  
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="m-3">
+          <a (click)="person.clear()" class="btn btn-outline-primary text-center m-2">Cancle</a>
+          <button [disabled]="this.person.invalid()" (click)=" check()"  class="btn btn-warning text-center text-light m-2"
+            >Enter</button
+          >
+        </div>
+        <a
+          class="card-link m-3 text-decoration-none"
+          style="font-family: sans-serif"
+          [routerLink]="'/register'"
+          >dont have any account?</a
+        >
+      </form>
+    </div>
+  </div>
+</div>
+ 
+
