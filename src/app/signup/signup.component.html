@@ -1,11 +1,10 @@
 <div class="container fade-in ">
-  <div class="card w-100 align-center" style="width: 18rem">
-    
-      <form class="card-body">
-      <div class="d-flex card-body row">  
+  <div class="card w-100 p-2 ">
+     
+      <form>
+      <div class=" card-body row ">  
         <div class="form-floating col" style="font-family: sans-serif">
           <input
-          
             (keypress)="this.person.keyWord($event)"
             name="name"
             [(ngModel)]="person.fullName"

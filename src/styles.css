@@ -7,10 +7,10 @@ body {
     background-image: url(./assets/pizza-1.webp);
     background-color: rgba(255, 255, 255, 0.486);
     background-blend-mode: overlay;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+   
  }
  @keyframes fadeIn {
    0% { opacity: 0; }
@@ -29,3 +29,4 @@ body {
     src: url(./assets/rtui.woff2);
  }
  .fade-in { animation: fadeIn 0.5s; }
+ 

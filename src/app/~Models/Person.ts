@@ -13,13 +13,17 @@ export class Person {
        phone:string = '';
        boos:boolean = false;
 
-       message:string = '' ;
+       usermessage:string = '' ;
+       usermessage2:string = '' ;
        passmessage:string = '' ;
+       namemessage:string = '' ;
+       emailmessage:string = '' ;
+       phonemessage:string = '' ;
    
        public clear(){
          this.userName = '' ;
          this.password = '';
-         this.message = '';
+         this.usermessage = '';
          this.passmessage = '';
          this.email = '';
          this.phone = '';
@@ -28,22 +32,57 @@ export class Person {
          this.boos = false;
          console.clear();
        }
-     
-      invalid(): true | any{
-        if ( this.userName == '' ) {
-          this.message = 'username is required' ;
-        } else {
-          this.message = '' ;
+       public invalidName(){
+        if (this.fullName == '') {
+          this.usermessage = 'hoy'
+        }
+        else{
+          this.usermessage = ''
         };
-        
-       if (this.password == '') {
-        this.passmessage = 'pasword is required' ;
-       } else {
-        this.passmessage = '' ;
-      };
-      
-       return this.message && this.passmessage
+        return this.usermessage ;
+       }
+       
+      public invalidUser(){
+        if ( this.userName == '' ) {
+          this.usermessage = 'username is required' ;
+        } else {
+          this.usermessage = '' ; 
+        }
+        if (this.userName >= '1' && this.userName <= '3') {
+          this.usermessage = ''
+          this.usermessage = 'kame';
+        }
+        return  this.usermessage 
+       }
+
+      public invalidPass(){
+        if (this.password == '') {
+          this.passmessage = 'pasword is required' ;
+         } else {
+          this.passmessage = '' ;
+        };
+        return this.passmessage;
       }
+      
+      public invalidEmail(){
+        if (this.email == '') {
+          this.passmessage = 'email is required' ;
+         } else {
+          this.passmessage = '' ;
+        };
+        return this.passmessage;
+      }
+      
+      public invalidPhone(){
+        if (this.phone == '') {
+          this.phonemessage = 'phone is required' ;
+         } else {
+          this.phonemessage = '' ;
+        };
+        return this.phonemessage;
+      }
+
+
 
       keyWord(e:KeyboardEvent){
         // var letters = [0-9]
@@ -56,33 +95,13 @@ export class Person {
       }
 
       keyNumber(e:KeyboardEvent){
-        var letters = /^[^-0-9]+$/;
+        var letters = /^[a-zA-Z]+$/;
         
-        if (letters) {
+        if (!letters){
           e.preventDefault()
         }
         
       }
-
-      
-      // invalidpass(){
-      //   if ( this.password == ''  ) {
-      //     this.passmessage = 'username is required' ;
-      //     return this.passmessage; 
-      //   }
-      //   else {
-      //     this.passmessage = '' ;
-      //     return this.passmessage; 
-      //   }
-      // }
-
-
-
-      // teded(): true | any {
-      //   if (Number(this.username) <= 3 && Number(this.username) >= 10) {
-      //     this.message = 'username bin 3 ta 10' ;
-      //     return this.message; 
-      //   }
-        
-      // }
   }
+
+

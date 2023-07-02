@@ -1,7 +1,7 @@
-<div class="container fade-in  ">
+<div class="container fade-in">
   
-  <div class="card p-4 m-5 " style="width: 18rem; z-index: 200;">
-    <div class="card-body container">
+  <div class="card m-3 p-4" style="width: 18rem;">
+    <div class="card-body ">
       <form class="needs-validation" #personForm="ngForm" novalidate>
         <div class="m-3">
           <h4 style="font-family: samim" class="card-title">
@@ -16,8 +16,8 @@
         <div class="form-floating m-3 col" style="font-family: sans-serif">
           <input
           
-            [class.is-invalid]="this.person.invalid()"
-            (click)="this.person.invalid()"
+            [class.is-invalid]="this.person.invalidUser()"
+            (click)="this.person.invalidUser()"
             class="form-control"
             #name="ngModel"
             name="username"
@@ -28,10 +28,15 @@
             maxlength="10"
             id="floatingInput"
             placeholder="ali"
+            [min]="2"
+            
           />
           
          <div class="text-danger ml-3"  style="font-size: small;" >
-          {{this.person.message}}
+          {{this.person.usermessage}}
+         </div>
+         <div class="text-danger ml-3"  style="font-size: small;" >
+          {{this.person.usermessage2}}
          </div>
         
       <label for="validationCustom01" for="floatingInput">Username</label>
@@ -40,8 +45,8 @@
         <div class="form-floating m-3 col" style="font-family: sans-serif">
           <input
             
-            [class.is-invalid]="this.person.invalid()"
-            (click)="this.person.invalid()"
+            [class.is-invalid]="this.person.invalidPass()"
+            (click)="this.person.invalidPass()"
             class="form-control "
             #name="ngModel"
             name="loginPassword"
@@ -59,7 +64,7 @@
         </div>
         <div class="m-3">
           <a (click)="person.clear()" class="btn btn-outline-primary text-center m-2">Cancle</a>
-          <button [disabled]="this.person.invalid()" (click)=" check()"  class="btn btn-warning text-center text-light m-2"
+          <button [disabled]="this.person.invalidUser() && this.person.invalidPass()" (click)=" check()"  class="btn btn-warning text-center text-light m-2"
             >Enter</button
           >
         </div>
@@ -75,3 +80,4 @@
 </div>
  
 
+  
