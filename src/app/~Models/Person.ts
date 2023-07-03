@@ -34,12 +34,11 @@ export class Person {
        }
        public invalidName(){
         if (this.fullName == '') {
-          this.usermessage = 'hoy'
+          this.namemessage = 'asfkdkfsdkf'
+        } else{
+          this.namemessage = ''
         }
-        else{
-          this.usermessage = ''
-        };
-        return this.usermessage ;
+        return this.namemessage ;
        }
        
       public invalidUser(){
@@ -48,10 +47,7 @@ export class Person {
         } else {
           this.usermessage = '' ; 
         }
-        if (this.userName >= '1' && this.userName <= '3') {
-          this.usermessage = ''
-          this.usermessage = 'kame';
-        }
+        
         return  this.usermessage 
        }
 
