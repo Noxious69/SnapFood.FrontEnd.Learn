@@ -18,26 +18,5 @@ export class AppComponent {
     this.modalService.open(modal);
   }
 
-  @Input() signup = ''
-  @Input() login = ''
-  
-}
-// state('open', style({
-//   height: '200px',
-//   opacity: 1,
-//   backgroundColor: 'yellow'
-// })),
-// state('closed', style({
-//   height: '100px',
-//   opacity: 0.8,
-//   backgroundColor: 'blue'
-// }))
-interface IPerson{
-  username:string;
-  fullname:string;
-  password:string;
-  chef:boolean;
-  
-clear() : any ;
-
+ 
 }

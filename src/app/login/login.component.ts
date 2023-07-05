@@ -1,7 +1,7 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, QueryList } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import {Person} from '../~Models/Person'
-import { FormControl, FormGroup } from '@angular/forms';
+import {Validator, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -13,15 +13,18 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class LoginComponent {
 
   person : Person = new Person
-  check(){
-    console.log(this.person);
-  }
   
-
-
+    check(){
+    console.log(this.person);
+    
+  }
   
   
 }
+
+
+  
+
 
 
   

@@ -1,6 +1,6 @@
 <div class="container fade-in">
   
-  <div class="card m-3 p-4" style="width: 18rem;">
+  <div class="card m-3 " style="width: 18rem;">
     <div class="card-body ">
       <form class="needs-validation" #personForm="ngForm" novalidate>
         <div class="m-3">
@@ -16,8 +16,9 @@
         <div class="form-floating m-3 col" style="font-family: sans-serif">
           <input
           
-            [class.is-invalid]="this.person.invalidUser()"
+            [class.is-invalid]="this.person.invalidUser() || !this.person.userName"
             (click)="this.person.invalidUser()"
+            (keypress)="this.person.keyWord($event)"
             class="form-control"
             #name="ngModel"
             name="username"
@@ -27,17 +28,17 @@
             minlength="3"
             maxlength="10"
             id="floatingInput"
-            placeholder="ali"
-            [min]="2"
+            placeholder=" "
+            [minlength]="2"
             
           />
-          
+          <div class="text-danger ml-3" *ngIf="!person.userName" style="font-size: small;">
+            username is required
+          </div>
          <div class="text-danger ml-3"  style="font-size: small;" >
           {{this.person.usermessage}}
          </div>
-         <div class="text-danger ml-3"  style="font-size: small;" >
-          {{this.person.usermessage2}}
-         </div>
+        
         
       <label for="validationCustom01" for="floatingInput">Username</label>
         </div>
@@ -45,39 +46,37 @@
         <div class="form-floating m-3 col" style="font-family: sans-serif">
           <input
             
-            [class.is-invalid]="this.person.invalidPass()"
-            (click)="this.person.invalidPass()"
+            [class.is-invalid]="!this.person.loginpassword"
             class="form-control "
             #name="ngModel"
             name="loginPassword"
-            [(ngModel)]="person.password"
+            [(ngModel)]="person.loginpassword"
             type="password"
             class="form-control"
             id="floatingPassword"
-            placeholder="example:12345678"
+            placeholder=" "
+            required
           />
-          <div class="text-danger ml-3"  style="font-size: small;"  >
-            {{this.person.passmessage}}
+          <div class="text-danger ml-3" *ngIf="!person.loginpassword" style="font-size: small;"  >
+            passwor is required
            </div>
   
           <label for="floatingPassword">Password</label>
         </div>
         <div class="m-3">
           <a (click)="person.clear()" class="btn btn-outline-primary text-center m-2">Cancle</a>
-          <button [disabled]="this.person.invalidUser() && this.person.invalidPass()" (click)=" check()"  class="btn btn-warning text-center text-light m-2"
+          <button [disabled]="!this.person.invalidUser() && !this.person.loginpassword " (click)=" check()"  class="btn btn-warning text-center text-light m-2"
             >Enter</button
           >
         </div>
-        <a
-          class="card-link m-3 text-decoration-none"
-          style="font-family: sans-serif"
-          [routerLink]="'/register'"
-          >dont have any account?</a
-        >
+        <div class="card-footer text-center">
+          <a
+            class="card-link m-3 text-decoration-none"
+            style="font-family: sans-serif"
+            [routerLink]="'/register'"
+            >dont have any account?</a>
+        </div>
       </form>
     </div>
   </div>
 </div>
- 
-
-  
