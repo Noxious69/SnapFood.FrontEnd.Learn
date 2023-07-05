@@ -45,7 +45,7 @@ export class Person {
        }
        public invalidName(){
         if ( this.fullName != '' && this.fullName.length <= 2 ) {
-          this.namemessage = 'kame'
+          this.namemessage = 'نا  باید حداقل سه حرف باشد'
         } else{
           this.namemessage = ''
         }
@@ -54,7 +54,7 @@ export class Person {
        
       public invalidUser(){
         if (this.userName != '' && this.userName.length <= 2 ) {
-          this.usermessage = 'tedad raft'
+          this.usermessage = 'نام کاربری باید حداقل سه حرف باشد'
         } else{
           this.usermessage = '';
         }
@@ -64,17 +64,17 @@ export class Person {
 
       public invalidPass(){
         if (this.password == '' && this.againpass == '') {
-          this.passmessage = 'pasword is required' ;
+          this.passmessage = 'رمز عبور اجباری است' ;
          } 
         if (this.againpass == '') {
-          this.againmessage = 'tekrar pasword is required' ;
+          this.againmessage = 'تکرار رمز عبور اجباری است' ;
          } else {
           this.passmessage = '' ;
           this.againmessage = '' ;
         }
         if (this.password != this.againpass && this.againpass != '') {
-          this.passmessage = 'mogh';
-          this.againmessage = 'mogh';
+          this.passmessage = 'رمز عبور یا تکرار رمز عبور اشتباه است';
+          this.againmessage = 'رمز عبور یا تکرار رمز عبور اشتباه است';
         }
         return this.passmessage && this.againmessage; 
       }
@@ -83,7 +83,7 @@ export class Person {
       
       public invalidPhone(){
         if (this.phone == '') {
-          this.phonemessage = 'phone is required' ;
+          this.phonemessage = 'این فیلد ضروری است' ;
          } else {
           this.phonemessage = '' ;
         };
@@ -91,21 +91,15 @@ export class Person {
       }
 
       public invalidExp(){
-        if (this.experience <= 5 ) {
-          this.expmessage = 'hadaghal 5'
+        if (this.experience.valueOf() <= 5 && this.experience != 0) {
+          this.expmessage = 'حداقل مقدار مجاز سوابق کاری پنج سال است'
         }
         else {
           this.expmessage = ''
         }
       }
       
-      public invalidRn(){
-        if (this.nameOfResturant == '') {
-          this.rnmessage = 'invalid'
-        }else{
-          this.rnmessage = '';
-        }
-      }
+      
 
 
 

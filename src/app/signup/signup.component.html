@@ -1,9 +1,9 @@
 <div class="container fade-in">
-  <div class="card w-100 mb-0 m-3 p-3">
+  <div class="card min-vw-80 mb-0 m-3 p-3"style="font-family: samim">
     <div class="cad-body">
       <form class="needs-validation" #personForm="ngForm" novalidate>
-        <div class="row">
-          <div class="form-floating col m-3" style="font-family: sans-serif">
+        <div class="row ">
+          <div class="form-floating col m-3" style="font-family: samim,sans-serif">
             <input
               [class.is-invalid]="this.person.invalidName() || !this.person.fullName"
               (click)="this.person.invalidName()"
@@ -16,19 +16,19 @@
               aria-label="what is your name"
               id="floatingInput"
             />
-            <div class="text-danger " style="font-size: small" *ngIf="!person.fullName">
-              Name is required
+            <div class="text-danger " style="font-size: small;font-family: samim" *ngIf="!person.fullName">
+              نام ضروری است
             </div>
-            <div class="text-danger" style="font-size: small">
+            <div class="text-danger" style="font-size: small; font-family: samim" >
               {{this.person.namemessage}}
             </div>
-            <label class="ms-2" for="floatingInput">what is your name</label>
+            <label class="ms-2" for="floatingInput">نام خود را وارد کنید</label>
           </div>
 
           <div class="input-group m-3 me-1 col">
-            
+          
               <span class="input-group-text " id="inputGroupPrepend">@</span>
-            
+          
             <div class="form-floating">
               <input
                 [class.is-invalid]="this.person.invalidUser() || !person.userName"
@@ -42,23 +42,23 @@
                 placeholder=" "
                 aria-label="enter your user name"
               />
-              <div class="text-danger " *ngIf="!person.userName" style="font-size: small;">
-                username is required
+              <div class="text-danger d-flex input-group-prended" *ngIf="!person.userName" style="font-size: small; font-family: samim;">
+                یوز نیم اجباری است
               </div>
               <div
-                class="text-danger invalid-feedback"
+                class="text-danger "
                 style="font-size: small">
                 {{ person.usermessage }}
               </div>
               <label class="ms-2 formcontrol" for="floatingName"
-                >enter your user name</label>
+                >یوز نیم خود را وارد کنید</label>
             </div>
           </div>
 
         </div>
 
         <div class="d-flex row ">
-          <div class="input-group m-3 me-1 col" style="font-family: sans-serif">
+          <div class="input-group m-3 col" style="font-family: samim">
             <span class="input-group-text" id="inputGroupPrepend">+98</span>
             <div class="form-floating">
               <input
@@ -71,15 +71,15 @@
                 class="form-control"
                 placeholder=" "
               />
-              <div class="text-danger col m-auto" *ngIf="!this.person.phone" style="font-size: small">
+              <div class="text-danger col m-auto" *ngIf="!this.person.phone" style="font-size: small;font-family: samim">
                 {{ this.person.phonemessage }}
               </div>
-              <label class="ms-2" for="floatingInput">Number</label>
+              <label class="ms-2" for="floatingInput">شماره تلفن</label>
             </div>
           </div>
           <div
             class="form-floating m-3 col-md-6"
-            style="font-family: sans-serif"
+            style="font-family: samim"
           >
             <input
               [class.is-invalid]="!this.person.email"
@@ -96,9 +96,9 @@
               class="text-danger col"
               style="font-size: small"
             >
-              email kharaaab
+              ایمیل ضروری است
             </div>
-            <label class="ms-2" for="floatingInput">Email</label>
+            <label class="ms-2" for="floatingInput">ایمیل</label>
           </div>
         </div>
 
@@ -115,10 +115,10 @@
             placeholder=" "
             name="password"
           />
-          <div class="text-danger invalid-feedback" style="font-size: small">
+          <div class="text-danger " style="font-size: small;font-family: samim">
             {{ this.person.passmessage }}
           </div>
-          <label class="ms-2" for="floatingPassword">Make your password</label>
+          <label class="ms-2" for="floatingPassword">یک رمز عبور بسازید</label>
         </div>
 
         <div class="form-floating m-3 col">
@@ -133,11 +133,11 @@
             class="form-control"
             placeholder=" "
           />
-          <div class="text-danger invalid-feedback" style="font-size: small">
+          <div class="text-danger " style="font-size: small">
             {{ this.person.againmessage }}
           </div>
           <label class="ms-2" for="floatingPassword"
-            >tekrar your password</label
+            >رمز عبور خود را تایید کنید</label
           >
         </div>
 
@@ -153,7 +153,7 @@
             />
 
             <label class="form-check-label" for="checkCustomer">
-              im customer
+              من مشتری هستم
             </label>
           </div>
           <div class="form-check form-check-inline m-3 col">
@@ -167,15 +167,15 @@
             />
 
             <label class="form-check-label" for="checkBoos">
-              im Resturant manager
+              من مدیر رستوران هستم
             </label>
           </div>
         </div>
 
         <div *ngIf="person.boos" class="form-floating d-flex row">
-          <div class="form-floating m-3 col" style="font-family: sans-serif">
+          <div class="form-floating m-3 col" style="font-family: samim">
             <input
-              [class.is-invalid]="this.person.invalidRn()"
+              [class.is-invalid]="!this.person.nameOfResturant"
               name="name"
               [(ngModel)]="person.nameOfResturant"
               type="text"
@@ -184,15 +184,16 @@
               aria-label="what is your name"
               id="floatingInput"
             />
-            <div class="text-danger invalid-feedback" style="font-size: small">
-              {{ this.person.rnmessage }}
+            <div class="text-danger " *ngIf="!this.person.nameOfResturant" style="font-size: small">
+              نام رستوران معتبر نیست
             </div>
-            <label class="ms-2" for="floatingInput">resturan name</label>
+            <label class="ms-2" for="floatingInput">نام رستوران</label>
           </div>
 
-          <div class="col m-3 form-floating">
+          <div class="col m-3 form-floating"style="font-family:samim;">
             <input
               [class.is-invalid]="this.person.invalidExp()"
+              [class.is-invalid]="!this.person.experience"
               (click)="this.person.invalidExp()"
               min="0"
               max="30"
@@ -205,14 +206,16 @@
               id="FloatingNumber"
               type="number"
             />
+            <div *ngIf="!person.experience" class="text-danger"style="font-family:samim ; font-size: small;">
+                سابقه کاری اجباری است
+            </div>
             <div
-              class="text-danger invalid-feedback"
-              *ngIf="this.person.invalidExp()"
-              style="font-size: small"
-            >
+              class="text-danger "
+              
+              style="font-size: small;font-family:samim;">
               {{ this.person.expmessage }}
             </div>
-            <label class="ms-2" for="FloatingNumber">sabghe</label>
+            <label class="ms-2" for="FloatingNumber">سابقه فعالیت</label>
           </div>
         </div>
 
@@ -221,22 +224,19 @@
             (click)="person.clear()"
             class="btn btn-outline-primary text-center m-2"
           >
-            Cancle
+            انصراف
           </button>
           <button
             class="btn btn-warning text-center text-light m-2"
           >
-            Enter
+            تایید
           </button>
         </div>
         <div class="card-footer">
           <div class="text-center">
-            <a
-              [routerLink]="'/login'"
-              class="card-link text-decoration-none"
-              style="font-family: sans-serif"
-              >also have an account?</a
-            >
+          <p>از قبل اکانت داری؟
+            <a [routerLink]="'/login'" class="card-link text-decoration-none" style="font-family: sans-serif">کلیک کن</a>
+          </p>
           </div>
         </div>
       </form>
