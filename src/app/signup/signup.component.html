@@ -73,8 +73,10 @@
         </div>
 
         <div class="d-flex row">
-          <div class="input-group input-group-prepend m-3 col" style="font-family: samim , sans-serif">
-            <span class="input-group-text mx-auto px-auto" id="inputGroupPrepend">+98</span>
+          <div class="input-group  m-3 col" style="font-family: samim , sans-serif">
+            <div class="">
+              <span class="input-group-text " id="inputGroupPrepend">+98</span>
+            </div>
           <div class="form-floating">
               <input
                 maxlength="10"
@@ -88,13 +90,13 @@
                 placeholder=" "
               />
               <div
-                class="text-danger col m-auto p-0"
+                class="text-danger col input-group"
                 *ngIf="!this.person.phone"
                 style="font-size: small; font-family: samim , sans-serif">
                 شماره تلفن اجباری است
               </div>
               <div
-                class="text-danger col m-auto p-0"
+                class="text-danger col input-group"
                 style="font-size: small; font-family: samim , sans-serif">
                 {{ this.person.phonemessage }}
               </div>
