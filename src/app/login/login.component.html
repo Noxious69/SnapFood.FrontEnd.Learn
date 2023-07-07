@@ -3,10 +3,10 @@
     <div class="card-body">
       <form class="needs-validation" #personForm="ngForm" novalidate>
         <div class="m-3 text-center">
-          <h4 style="font-family: samim" class="card-title">رستوران یام یام</h4>
+          <h4 style="font-family: samim , sans-serif" class="card-title">رستوران یام یام</h4>
         </div>
 
-        <div class="form-floating m-3 col" style="font-family: samim">
+        <div class="form-floating m-3 col" style="font-family: samim , sans-serif">
           <input
             [class.is-invalid]="
               this.person.invalidUser() || !this.person.userName
@@ -28,13 +28,13 @@
           <div
             class="text-danger ml-3"
             *ngIf="!person.userName"
-            style="font-size: small; font-family: samim"
+            style="font-size: small; font-family: samim , sans-serif"
           >
             یوزر نیم اجباری است
           </div>
           <div
             class="text-danger ml-3"
-            style="font-size: small; font-family: samim"
+            style="font-size: small; font-family: samim , sans-serif"
           >
             {{ this.person.usermessage }}
           </div>
@@ -42,7 +42,7 @@
           <label for="validationCustom01" for="floatingInput">یوزر نیم</label>
         </div>
 
-        <div class="form-floating m-3 col" style="font-family: samim">
+        <div class="form-floating m-3 col" style="font-family: samim , sans-serif">
           <input
             [class.is-invalid]="!this.person.loginpassword"
             class="form-control"
@@ -58,14 +58,14 @@
           <div
             class="text-danger ml-3"
             *ngIf="!person.loginpassword"
-            style="font-size: small; font-family: samim"
+            style="font-size: small; font-family: samim , sans-serif"
           >
             رمز عبور اجباری است
           </div>
 
           <label for="floatingPassword">رمز عبور</label>
         </div>
-        <div class="m-3" style="font-family: samim">
+        <div class="m-3" style="font-family: samim , sans-serif">
           <button
             (click)="person.clear()"
             class="btn btn-outline-primary text-center m-2"
@@ -82,11 +82,11 @@
             تایید
           </button>
         </div>
-        <div class="card-footer text-center" style="font-family: samim">
+        <div class="card-footer text-center" style="font-family: samim , sans-serif">
           <p>
             اکانت نداری؟<a
               class="card-link text-decoration-none"
-              style="font-family: samim"
+              style="font-family: samim , sans-serif"
               [routerLink]="'/register'"
               >کلیک کن</a
             >

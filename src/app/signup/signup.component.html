@@ -1,11 +1,11 @@
-<div class="container fade-in">
-  <div class="card min-vw-80 mb-0 m-3 p-3" style="font-family: samim">
-    <div class="cad-body">
+<div class="container min- fade-in">
+  <div class="card mh-100 min-vw-150 mb-0 m-3 p-3" style="font-family: samim , sans-serif">
+    <div class="cad-body dflex">
       <form class="needs-validation" #personForm="ngForm" novalidate>
         <div class="row">
           <div
             class="form-floating col m-3"
-            style="font-family: samim, sans-serif"
+            style="font-family: samim , sans-serif"
           >
             <input
               [class.is-invalid]="
@@ -23,14 +23,14 @@
             />
             <div
               class="text-danger"
-              style="font-size: small; font-family: samim"
+              style="font-size: small; font-family: samim , sans-serif"
               *ngIf="!person.fullName"
             >
               نام ضروری است
             </div>
             <div
               class="text-danger"
-              style="font-size: small; font-family: samim"
+              style="font-size: small; font-family: samim , sans-serif"
             >
               {{ this.person.namemessage }}
             </div>
@@ -58,7 +58,7 @@
               <div
                 class="text-danger d-flex input-group-prended"
                 *ngIf="!person.userName"
-                style="font-size: small; font-family: samim"
+                style="font-size: small; font-family: samim , sans-serif"
               >
                 یوز نیم اجباری است
               </div>
@@ -73,12 +73,13 @@
         </div>
 
         <div class="d-flex row">
-          <div class="input-group m-3 col" style="font-family: samim">
-            <span class="input-group-text" id="inputGroupPrepend">+98</span>
-            <div class="form-floating">
+          <div class="input-group input-group-prepend m-3 col" style="font-family: samim , sans-serif">
+            <span class="input-group-text mx-auto px-auto" id="inputGroupPrepend">+98</span>
+          <div class="form-floating">
               <input
+                maxlength="10"
                 (click)="this.person.invalidPhone()"
-                [class.is-invalid]="this.person.invalidPhone()"
+                [class.is-invalid]="this.person.invalidPhone() || !this.person.phone"
                 (keypress)="this.person.keyNumber($event)"
                 name="name"
                 [(ngModel)]="this.person.phone"
@@ -87,18 +88,24 @@
                 placeholder=" "
               />
               <div
-                class="text-danger col m-auto"
+                class="text-danger col m-auto p-0"
                 *ngIf="!this.person.phone"
-                style="font-size: small; font-family: samim"
-              >
+                style="font-size: small; font-family: samim , sans-serif">
+                شماره تلفن اجباری است
+              </div>
+              <div
+                class="text-danger col m-auto p-0"
+                style="font-size: small; font-family: samim , sans-serif">
                 {{ this.person.phonemessage }}
               </div>
+              
               <label class="ms-2" for="floatingInput">شماره تلفن</label>
             </div>
           </div>
-          <div class="form-floating m-3 col-md-6" style="font-family: samim">
+          <div class="form-floating m-3 col-md-6" style="font-family: samim , sans-serif">
             <input
-              [class.is-invalid]="!this.person.email"
+              [class.is-invalid]="!this.person.email || this.person.invalidEmail()"
+              (blur)="person.invalidEmail()"
               ngModel
               name="email"
               [(ngModel)]="person.email"
@@ -108,10 +115,14 @@
               required
             />
             <div
+              class="text-danger col"
+              style="font-size: small">
+              {{this.person.emailmessage}}
+            </div>
+            <div
               *ngIf="!this.person.email"
               class="text-danger col"
-              style="font-size: small"
-            >
+              style="font-size: small">
               ایمیل ضروری است
             </div>
             <label class="ms-2" for="floatingInput">ایمیل</label>
@@ -131,7 +142,7 @@
             placeholder=" "
             name="password"
           />
-          <div class="text-danger" style="font-size: small; font-family: samim">
+          <div class="text-danger" style="font-size: small; font-family: samim , sans-serif">
             {{ this.person.passmessage }}
           </div>
           <label class="ms-2" for="floatingPassword">یک رمز عبور بسازید</label>
@@ -165,7 +176,7 @@
               type="radio"
               name="flexRadioDefault"
               id="checkCustomer"
-              value:bolean="false"
+              [value]="false"
             />
 
             <label class="form-check-label" for="checkCustomer">
@@ -179,7 +190,7 @@
               type="radio"
               name="flexRadioDefault"
               id="checkBoos"
-              value="true"
+              [value]="true"
             />
 
             <label class="form-check-label" for="checkBoos">
@@ -189,7 +200,7 @@
         </div>
 
         <div *ngIf="person.boos" class="form-floating d-flex row">
-          <div class="form-floating m-3 col" style="font-family: samim">
+          <div class="form-floating m-3 col" style="font-family: samim , sans-serif">
             <input
               [class.is-invalid]="!this.person.nameOfResturant"
               name="name"
@@ -210,7 +221,7 @@
             <label class="ms-2" for="floatingInput">نام رستوران</label>
           </div>
 
-          <div class="col m-3 form-floating" style="font-family: samim">
+          <div class="col m-3 form-floating" style="font-family: samim , sans-serif">
             <input
               [class.is-invalid]="this.person.invalidExp()"
               [class.is-invalid]="!this.person.experience"
@@ -224,19 +235,16 @@
               minlength="5"
               maxlength="30"
               id="FloatingNumber"
-              type="number"
-            />
+              type="number"/>
             <div
               *ngIf="!person.experience"
-              class="text-danger"
-              style="font-family: samim; font-size: small"
-            >
+              class="text-danger "
+              style="font-family: samim , sans-serif; font-size: small">
               سابقه کاری اجباری است
             </div>
             <div
               class="text-danger"
-              style="font-size: small; font-family: samim"
-            >
+              style="font-size: small; font-family: samim , sans-serif">
               {{ this.person.expmessage }}
             </div>
             <label class="ms-2" for="FloatingNumber">سابقه فعالیت</label>
@@ -254,14 +262,14 @@
             تایید
           </button>
         </div>
-        <div class="card-footer">
+        <div class="card-footer m-auto p-0">
           <div class="text-center">
             <p>
               از قبل اکانت داری؟
               <a
                 [routerLink]="'/login'"
                 class="card-link text-decoration-none"
-                style="font-family: sans-serif"
+                style="font-family: samim ,sans-serif"
                 >کلیک کن</a
               >
             </p>

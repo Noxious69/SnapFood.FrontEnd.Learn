@@ -45,7 +45,7 @@ export class Person {
        }
        public invalidName(){
         if ( this.fullName != '' && this.fullName.length <= 2 ) {
-          this.namemessage = 'نا  باید حداقل سه حرف باشد'
+          this.namemessage = 'نام باید حداقل سه حرف باشد'
         } else{
           this.namemessage = ''
         }
@@ -76,17 +76,36 @@ export class Person {
           this.passmessage = 'رمز عبور یا تکرار رمز عبور اشتباه است';
           this.againmessage = 'رمز عبور یا تکرار رمز عبور اشتباه است';
         }
+        if (this.password == '' && this.againpass != '') {
+          this.againmessage = 'kali'
+        }
         return this.passmessage && this.againmessage; 
       }
       
-      
+      public invalidEmail(){
+        if (this.email != '' && !this.email.includes('@')) {
+          this.emailmessage = 'namotabar'
+        }
+        else{
+          this.emailmessage = ''
+        }
+        return this.emailmessage ;
+      }
       
       public invalidPhone(){
-        if (this.phone == '') {
-          this.phonemessage = 'این فیلد ضروری است' ;
-         } else {
+        if (!this.phone.startsWith('9') && this.phone != '') {
           this.phonemessage = '' ;
-        };
+          this.phonemessage = 'namotabar'
+
+          
+        }
+        else if(this.phone != '' && this.phone.length < 10){
+          this.phonemessage = ''
+          this.phonemessage = 'kheily'
+        }
+        else{
+          this.phonemessage = '' ;
+        }
         return this.phonemessage;
       }
 
@@ -112,9 +131,9 @@ export class Person {
       }
       
       keyWord(event:any){
-        const letter = /^[a-zA-Z]+$/
+        const letter = /[^a-zA-Zآ-ی]/g
         const inputChar = String.fromCharCode(event.charCode);
-        if (!letter.test(inputChar)){
+        if (letter.test(inputChar)){
           event.preventDefault();
         }
         
