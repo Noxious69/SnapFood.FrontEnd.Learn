@@ -53,8 +53,8 @@ export class Person {
        }
        
       public invalidUser(){
-        if (this.userName != '' && this.userName.length <= 2 ) {
-          this.usermessage = 'نام کاربری باید حداقل سه حرف باشد'
+        if (this.userName != '' && this.userName.length < 5 ) {
+          this.usermessage = 'یوزر نیم باید حداقل 5 حرف باشد'
         } else{
           this.usermessage = '';
         }
