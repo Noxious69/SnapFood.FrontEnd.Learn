@@ -16,6 +16,7 @@ export class Person {
 
        usermessage:string = '' ;
        passmessage:string = '' ;
+       loginpassmessage:string = ''
        againmessage:string = '';
        namemessage:string = '' ;
        emailmessage:string = '' ;
@@ -77,14 +78,16 @@ export class Person {
           this.againmessage = 'رمز عبور یا تکرار رمز عبور اشتباه است';
         }
         if (this.password == '' && this.againpass != '') {
-          this.againmessage = 'kali'
+          this.againmessage = 'رمز عبور نمیتواند خالی باشد'
         }
+       
         return this.passmessage && this.againmessage; 
-      }
+      } 
       
       public invalidEmail(){
-        if (this.email != '' && !this.email.includes('@')) {
+        if (this.email != '' && !this.email.includes('@') || !this.email.endsWith('.com') )  {
           this.emailmessage = 'namotabar'
+          
         }
         else{
           this.emailmessage = ''
@@ -116,13 +119,14 @@ export class Person {
         else {
           this.expmessage = ''
         }
+        return this.expmessage;
       }
       
       
 
 
 
-      keyNumber(event : any){
+      keyNumber(event : KeyboardEvent){
         const pattern = /[0-9]/;
         const inputChar = String.fromCharCode(event.charCode);
         if (!pattern.test(inputChar)){
@@ -130,7 +134,7 @@ export class Person {
         }
       }
       
-      keyWord(event:any){
+      keyWord(event:KeyboardEvent){
         const letter = /[^a-zA-Zآ-ی]/g
         const inputChar = String.fromCharCode(event.charCode);
         if (letter.test(inputChar)){
@@ -139,46 +143,10 @@ export class Person {
         
       
 
- // public empty(){
-      //   if (this.fullName == '') {
-      //     this.namemessage = 'asfkdkfsdkf'
-      //   } else{
-      //     this.namemessage = ''
-      //   };
-
-      //   if ( this.userName == '' ) {
-      //     this.usermessage = 'username is required' ;
-      //   } else {
-      //     this.usermessage = '' ; 
-      //   };
-
-      //   if ( this.userName == '' ) {
-      //     this.usermessage = 'username is required' ;
-      //   } else {
-      //     this.usermessage = '' ; 
-      //   };
-
-      //   if (this.password == '') {
-      //     this.passmessage = 'pasword is required' ;
-      //    } else {
-      //     this.passmessage = '' ;
-      //   };
-
-      //   if (this.email == '') {
-      //     this.passmessage = 'email is required' ;
-      //    } else {
-      //     this.passmessage = '' ;
-      //   };
-
-      //   if (this.phone == '') {
-      //     this.phonemessage = 'phone is required' ;
-      //    } else {
-      //     this.phonemessage = '' ;
-      //   }
-
-      //   return this.namemessage && this.usermessage && this.passmessage && this.emailmessage && this.phonemessage
-      // } 
       }
+      
+        
+      
   }
 
 
