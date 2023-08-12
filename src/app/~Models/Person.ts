@@ -1,8 +1,7 @@
-import { FormControl, Validators } from "@angular/forms";
+
 
 export class Person {
-  
-   
+      
        userName :string = '' ;
        loginpassword :string = '' ;
        password :string = '' ;

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { trigger , state , style , animate , transition} from '@angular/animations';
+import { BackendService } from './+services/backend.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,16 @@ import { trigger , state , style , animate , transition} from '@angular/animatio
 })
 export class AppComponent {
   title = 'foodfront';
+  person: any;
 
-  constructor(private modalService: NgbModal) {
-  }
+  constructor(private modalService: NgbModal ) {}
 
+  
+  
+  
   public open(modal: any): void {
     this.modalService.open(modal);
-  }
 
- 
+
+  }
 }

@@ -1,7 +1,7 @@
-import { Component, Input, Output, QueryList } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component,} from '@angular/core';
 import {Person} from '../~Models/Person'
-import {Validator, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BackendsecurityService } from '../+services/backendsecurity.service';
+
 
 
 
@@ -12,13 +12,15 @@ import {Validator, FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
-  person : Person = new Person
-  
-    check(){
-    console.log(this.person);
-    
-  }
-  
+  person: Person = new Person;
+
+  constructor(private backend:BackendsecurityService) {}
+  public check(){    
+    this.backend.signin(this.person.userName.toString() , this.person.password.toString()).subscribe(r=>
+      {
+        console.log(JSON.stringify(r))
+      });
+    }
   
 }
 

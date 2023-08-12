@@ -70,13 +70,13 @@
           <div class="text-danger ml-3"
           style="font-size: small; font-family: samim , sans-serif"
           id="loginPass"
-          *ngIf="this.person.loginpassword && this.person.loginpassword.length < 8 "
+          *ngIf="this.person.loginpassword && this.person.loginpassword.length < 2 "
           >
           تعدعد کمه
          </div>
           <label for="floatingPassword">رمز عبور</label>
         </div>
-        <div class="m-3" style="font-family: samim , sans-serif">
+        <div class="mt-0 mb-1 me-2 ms-2" style="font-family: samim , sans-serif">
           <button
             (click)="person.clear()"
             class="btn btn-outline-primary text-center m-2"
@@ -84,10 +84,8 @@
             انصراف
           </button>
           <button
-            [disabled]="
-              !this.person.invalidUser() && !this.person.loginpassword || this.person.loginpassword.length < 8
-            "
-            (click)="check()"
+            (click)="this.check()"
+            [disabled]="!this.person.invalidUser() && !this.person.loginpassword || this.person.loginpassword.length < 8"
             class="btn btn-warning text-center text-light m-2"
           >
             تایید
