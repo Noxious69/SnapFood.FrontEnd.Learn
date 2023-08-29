@@ -179,8 +179,8 @@
             >رمز عبور خود را تایید کنید</label>
         </div>
 
-        <div class="col-md text-center">
-          <div class="form-check form-check-inline m-3 col" name="user">
+        <div class="col-auto text-start">
+          <!-- <div class="form-check form-check-inline m-3 col" name="user">
             <input
               [(ngModel)]="person.boos"
               class="form-check-input"
@@ -189,15 +189,15 @@
               id="checkCustomer"
               [value]="false"/>
 
-            <label class="form-check-label" for="checkCustomer">
+            <label class="form-check-label" for="flexRadioDefault1">
               من مشتری هستم
             </label>
-          </div>
-          <div class="form-check form-check-inline m-3 col">
+          </div> -->
+          <div class="form-check form-check-reverse form-check-inline m-3 col">
             <input
               [(ngModel)]="person.boos"
               class="form-check-input"
-              type="radio"
+              type="checkbox"
               name="flexRadioDefault"
               id="checkBoos"
               [value]="true"/>

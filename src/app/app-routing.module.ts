@@ -7,6 +7,9 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:SignupComponent},
   {path:'' , redirectTo:'/login' , pathMatch:'full'},
+  { path: 'admins', loadChildren: () => import('./admins/admins.module').then(m => m.AdminsModule) },
+  { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
+  { path: 'restaurants', loadChildren: () => import('./restaurants/restaurants.module').then(m => m.RestaurantsModule) },
   {path:'**' , redirectTo:'/login'}
 ];
 

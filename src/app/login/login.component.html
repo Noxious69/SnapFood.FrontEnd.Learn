@@ -23,7 +23,7 @@
               minlength="3"
               maxlength="10"
               id="floatingInput"
-              placeholder=" "
+              placeholder=""
               [minlength]="2"
             />
             
@@ -36,8 +36,7 @@
         <div
           class="text-danger ml-3"
           *ngIf="!person.userName"
-          style="font-size: small; font-family: samim , sans-serif"
-        >
+          style="font-size: small; font-family: samim , sans-serif"z>
           یوزر نیم اجباری است
         </div>
         <div
@@ -51,13 +50,12 @@
           <input
             [class.is-invalid]="!this.person.loginpassword || this.person.loginpassword.length < 8"
             class="form-control "
-            #name="ngModel"
             name="loginPassword"
             [(ngModel)]="person.loginpassword"
             type="password"
             class="form-control"
             id="floatingPassword"
-            placeholder=" "
+            placeholder=""
             required
           />
           <div
@@ -70,13 +68,13 @@
           <div class="text-danger ml-3"
           style="font-size: small; font-family: samim , sans-serif"
           id="loginPass"
-          *ngIf="this.person.loginpassword && this.person.loginpassword.length < 2 "
+          *ngIf="this.person.loginpassword && this.person.loginpassword.length < 8 "
           >
           تعدعد کمه
          </div>
           <label for="floatingPassword">رمز عبور</label>
         </div>
-        <div class="mt-0 mb-1 me-2 ms-2" style="font-family: samim , sans-serif">
+        <div *ngIf="busy == false" class="mt-0 mb-1 me-2 ms-2" style="font-family: samim , sans-serif">
           <button
             (click)="person.clear()"
             class="btn btn-outline-primary text-center m-2"
@@ -87,10 +85,24 @@
             (click)="this.check()"
             [disabled]="!this.person.invalidUser() && !this.person.loginpassword || this.person.loginpassword.length < 8"
             class="btn btn-warning text-center text-light m-2"
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop"
           >
             تایید
           </button>
         </div>
+        <div *ngIf="busy == true" class="mt-0 mb-1 me-2 ms-2" style="font-family: samim , sans-serif">
+          <button class="btn btn-outline-primary text-center m-1" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            انصراف
+            </button>
+
+          <button class="btn btn-warning text-center text-light m-1" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            تایید
+          </button>
+
+        </div>
+        
         <div class="card-footer text-center" style="font-family: samim , sans-serif">
           <p>
             اکانت نداری؟<a
@@ -100,6 +112,18 @@
               >کلیک کن</a
             >
           </p>
+        </div>
+        <div *ngIf="message != '' " class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                {{message}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>  
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     </div>

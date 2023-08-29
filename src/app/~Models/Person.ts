@@ -53,7 +53,7 @@ export class Person {
        }
        
       public invalidUser(){
-        if (this.userName != '' && this.userName.length < 5 ) {
+        if (this.userName != '' && this.userName.length <= 5 ) {
           this.usermessage = 'یوزر نیم باید حداقل 5 حرف باشد'
         } else{
           this.usermessage = '';
