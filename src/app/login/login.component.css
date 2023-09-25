@@ -1,3 +1,23 @@
-error{
-    font-size:small ;
+error {
+  font-size: small;
+}
+
+#screen
+ {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  background-color: rgba(255, 255, 255, 0.486);
+  background-image: url(../../assets/pizza-1.webp);
+  background-blend-mode: overlay;
+}
+.cen,
+.container,
+.card {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

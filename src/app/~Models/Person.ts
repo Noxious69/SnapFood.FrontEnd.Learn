@@ -11,7 +11,7 @@ export class Person {
        nameOfResturant:string = '';
        experience:number = 0;
        phone:string = '';
-       boos:boolean = false;
+       boos:number = 0;
 
        usermessage:string = '' ;
        passmessage:string = '' ;
@@ -33,7 +33,7 @@ export class Person {
          this.phone = '';
          this.nameOfResturant = '';
          this.experience = 0;
-         this.boos = false;
+         this.boos = 0;
 
          this.namemessage = '';
          this.usermessage = '';

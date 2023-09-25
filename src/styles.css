@@ -1,32 +1,36 @@
-
-html, body { min-height: 100vh; }
-
-body { 
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-image: url(./assets/pizza-1.webp);
-    background-color: rgba(255, 255, 255, 0.486);
-    background-blend-mode: overlay;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-   
- }
- @keyframes fadeIn {
-   0% { opacity: 0; }
-   100% { opacity: 1; }
- }
- @font-face {
-    font-family: samim;
-    src: url(./assets/Samim.woff);
- }
- @font-face {
-    font-family: awesome;
-    src: url(./assets/fontawesome-webfont.woff2);
- }
- @font-face {
-    font-family: rtui;
-    src: url(./assets/rtui.woff2);
- }
- .fade-in { animation: fadeIn 0.5s; }
- 
+body , html{min-height: 100vh;}
+body  {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  
+  
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@font-face {
+  font-family: samim;
+  src: url(./assets/Samim.woff);
+}
+@font-face {
+  font-family: awesome;
+  src: url(./assets/fontawesome-webfont.woff2);
+}
+@font-face {
+  font-family: rtui;
+  src: url(./assets/rtui.woff2);
+}
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+.fonta {
+  font-family: samim, sans-serif, awesome, rtui;
+}
+.back {
+  
+}

@@ -1,3 +1,23 @@
-.dis{
-    display: inline; 
+.dis {
+  display: inline;
 }
+body,
+html {
+  min-height: 100vh;
+  margin: 0;
+
+  
+}
+
+#screen , .cen
+ {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  background-color: rgba(255, 255, 255, 0.486);
+  background-image: url(../../assets/pizza-1.webp);
+  background-blend-mode: overlay;
+}
+

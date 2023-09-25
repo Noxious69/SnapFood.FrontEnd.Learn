@@ -7,7 +7,8 @@ import { AdminsComponent } from './admins.component';
 
 @NgModule({
   declarations: [
-    AdminsComponent
+    AdminsComponent,
+    
   ],
   imports: [
     CommonModule,
