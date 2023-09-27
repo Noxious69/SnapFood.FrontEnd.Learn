@@ -1,130 +1,133 @@
-<div id="screen">
-  <div class="container cen fade-in">
-    <div class="cen card p-3 m-3 fonta" style="width: 18rem">
-      <div class="cen card-body">
-        <form class="needs-validation" #personForm="ngForm" novalidate>
-          <div class="m-3 text-center">
-            <h4  class="card-title   ">رستوران یام یام</h4>
-          </div>
-          <div class="input-group mb-0 mt-3  ">
-            <span class="input-group-text   " id="inputGroupPrepend">@</span>
-  
-            <div class="form-floating   ">
-              <input
-                [class.is-invalid]="
-                  this.person.invalidUser() || !this.person.userName"
-                (click)="this.person.invalidUser()"
-                (keypress)="this.person.keyWord($event)"
-                class="form-control"
-                #name="ngModel"
-                name="username"
-                [(ngModel)]="person.userName"
-                type="text"
-                class="form-control"
-                minlength="3"
-                maxlength="10"
-                id="floatingInput"
-                placeholder=""
-                [minlength]="2"
-              />
-              
-              <label for="validationCustom01" for="floatingInput">یوزر نیم</label>
+<!DOCTYPE html>
+<html>
+  <div id="screen">
+    <div class="container cen fade-in">
+      <div class="cen card p-3 m-3 fonta" style="width: 18rem">
+        <div class="cen card-body">
+          <form class="needs-validation" #personForm="ngForm" novalidate>
+            <div class="m-3 text-center">
+              <h4  class="card-title   ">رستوران یام یام</h4>
             </div>
-          </div>
-          <div class="mt-0 ms-5">
-  
-          </div>
-          <div
-            class="text-danger ml-3   "
-            *ngIf="!person.userName"
-            >
-            یوزر نیم اجباری است
-          </div>
-          <div
-            class="text-danger ml-3   "
-          >
-            {{ this.person.usermessage }}
-          </div>
-  
-          <div class="form-floating me-1 ms-0 m-3 col   ">
-            <input
-              [class.is-invalid]="!this.person.loginpassword || this.person.loginpassword.length < 8"
-              class="form-control "
-              name="loginPassword"
-              [(ngModel)]="person.loginpassword"
-              type="password"
-              class="form-control"
-              id="floatingPassword"
-              placeholder=""
-              required
-            />
+            <div class="input-group mb-0 mt-3  ">
+              <span class="input-group-text   " id="inputGroupPrepend">@</span>
+    
+              <div class="form-floating">
+                <input
+                  [class.is-invalid]="
+                    this.person.invalidUser() || !this.person.userName"
+                  (click)="this.person.invalidUser()"
+                  (keypress)="this.person.keyWord($event)"
+                  class="form-control"
+                  #name="ngModel"
+                  name="username"
+                  [(ngModel)]="person.userName"
+                  type="text"
+                  class="form-control"
+                  minlength="3"
+                  maxlength="10"
+                  id="floatingInput"
+                  placeholder=""
+                  [minlength]="2"
+                />
+                
+                <label for="validationCustom01" for="floatingInput">یوزر نیم</label>
+              </div>
+            </div>
+            <div class="mt-0 ms-5">
+    
+            </div>
             <div
               class="text-danger ml-3   "
-              *ngIf="!person.loginpassword"
-            >
-              رمز عبور اجباری است
-            </div>
-            <div class="text-danger ml-3   "
-            id="loginPass"
-            *ngIf="this.person.loginpassword && this.person.loginpassword.length < 8 "
-            >
-            تعدعد کمه
-           </div>
-            <label for="floatingPassword">رمز عبور</label>
-          </div>
-          <div *ngIf="busy == false" class="mt-0 mb-1 me-2 ms-2   " >
-            <button
-              (click)="person.clear()"
-              class="btn btn-outline-primary text-center m-2"
-            >
-              انصراف
-            </button>
-            <button
-              (click)="this.check()"
-              [disabled]="!this.person.invalidUser() && !this.person.loginpassword || this.person.loginpassword.length < 8"
-              class="btn btn-warning text-center text-light m-2"
-              data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-            >
-              تایید
-            </button>
-          </div>
-          <div *ngIf="busy == true" class="mt-0 mb-1 me-2 ms-2   " >
-            <button class="btn btn-outline-primary text-center m-1" type="button" disabled>
-              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-              انصراف
-              </button>
-  
-            <button class="btn btn-warning text-center text-light m-1" type="button" disabled>
-              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-              تایید
-            </button>
-  
-          </div>
-          
-          <div class="card-footer text-center   " >
-            <p>
-              اکانت نداری؟<a
-                class="card-link text-decoration-none   "
-                [routerLink]="'/register'"
-                >کلیک کن</a
+              *ngIf="!person.userName"
               >
-            </p>
-          </div>
-          <div *ngIf="message != '' " class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-body">
-                  {{message}}
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>  
+              یوزر نیم اجباری است
+            </div>
+            <div
+              class="text-danger ml-3   "
+            >
+              {{ this.person.usermessage }}
+            </div>
+    
+            <div class="form-floating me-1 ms-0 m-3 col   ">
+              <input
+                [class.is-invalid]="!this.person.loginpassword || this.person.loginpassword.length < 8"
+                class="form-control "
+                name="loginPassword"
+                [(ngModel)]="person.loginpassword"
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder=""
+                required
+              />
+              <div
+                class="text-danger ml-3   "
+                *ngIf="!person.loginpassword"
+              >
+                رمز عبور اجباری است
+              </div>
+              <div class="text-danger ml-3   "
+              id="loginPass"
+              *ngIf="this.person.loginpassword && this.person.loginpassword.length < 8 "
+              >
+              حداقل مقدار ورودی 8 حرف است
+            </div>
+              <label for="floatingPassword">رمز عبور</label>
+            </div>
+            <div *ngIf="busy == false" class="mt-0 mb-1 me-2 ms-2   " >
+              <button
+                (click)="person.clear()"
+                class="btn btn-outline-primary text-center m-2"
+              >
+                انصراف
+              </button>
+              <button
+                (click)="this.check()"
+                [disabled]="!this.person.invalidUser() && !this.person.loginpassword || this.person.loginpassword.length < 8"
+                class="btn btn-warning text-center text-light m-2"
+                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+              >
+                تایید
+              </button>
+            </div>
+            <div *ngIf="busy == true" class="mt-0 mb-1 me-2 ms-2   " >
+              <button class="btn btn-outline-primary text-center m-1" type="button" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                انصراف
+                </button>
+    
+              <button class="btn btn-warning text-center text-light m-1" type="button" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                تایید
+              </button>
+    
+            </div>
+            
+            <div class="card-footer text-center   " >
+              <p>
+                اکانت نداری؟<a
+                  class="card-link text-decoration-none   "
+                  [routerLink]="'/register'"
+                  >کلیک کن</a
+                >
+              </p>
+            </div>
+            <div *ngIf="message != '' " class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    {{message}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>  
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
+    
   </div>
-  
-</div>
+</html>

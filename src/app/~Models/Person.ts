@@ -85,7 +85,7 @@ export class Person {
       
       public invalidEmail(){
         if (this.email != '' && !this.email.includes('@') || !this.email.endsWith('.com') )  {
-          this.emailmessage = 'namotabar'
+          this.emailmessage = 'ایمیل نامعتبر است'
           
         }
         else{
@@ -97,13 +97,13 @@ export class Person {
       public invalidPhone(){
         if (!this.phone.startsWith('9') && this.phone != '') {
           this.phonemessage = '' ;
-          this.phonemessage = 'namotabar'
+          this.phonemessage = 'شماره تلفن نامعتبر است'
 
           
         }
         else if(this.phone != '' && this.phone.length < 10){
           this.phonemessage = ''
-          this.phonemessage = 'kheily'
+          this.phonemessage = 'مقدار شماره تلفن نامعتبر است'
         }
         else{
           this.phonemessage = '' ;
