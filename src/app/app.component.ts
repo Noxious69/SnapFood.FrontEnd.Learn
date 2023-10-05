@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { trigger , state , style , animate , transition} from '@angular/animations';
 import { BackendService } from './+services/backend.service';
