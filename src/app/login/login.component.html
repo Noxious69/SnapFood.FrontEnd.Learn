@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <div id="screen">
-    <div class="container cen fade-in">
+    <div class="container-fluid cen fade-in">
       <div class="cen card p-3 m-3 fonta" style="width: 18rem">
         <div class="cen card-body">
           <form class="needs-validation" #personForm="ngForm" novalidate>
@@ -85,7 +85,8 @@
                 (click)="this.check()"
                 [disabled]="!this.person.invalidUser() && !this.person.loginpassword || this.person.loginpassword.length < 8"
                 class="btn btn-warning text-center text-light m-2"
-                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                 
+                data-bs-toggle="modal" data-bs-target="#exampleModal"
               >
                 تایید
               </button>
@@ -96,7 +97,7 @@
                 انصراف
                 </button>
     
-              <button class="btn btn-warning text-center text-light m-1" type="button" disabled>
+              <button id="liveToastBtn" (click)="check()" class="btn btn-warning text-center text-light m-1" type="button" disabled>
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                 تایید
               </button>
@@ -107,23 +108,23 @@
               <p>
                 اکانت نداری؟<a
                   class="card-link text-decoration-none   "
-                  [routerLink]="'/register'"
+                  [routerLink]="'/signup'"
                   >کلیک کن</a
                 >
               </p>
             </div>
-            <div *ngIf="message != '' " class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">
                     {{message}}
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>  
+                    <button class="btn btn-primary "data-bs-dismiss="modal" aria-label="Close">close</button>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
           </form>
         </div>
       </div>

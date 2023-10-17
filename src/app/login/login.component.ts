@@ -13,6 +13,9 @@ import { BackendsecurityService } from '../+services/backendsecurity.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+openModal() {
+throw new Error('Method not implemented.');
+}
 
   person: Person = new Person;
 
@@ -20,6 +23,8 @@ export class LoginComponent {
   busy:boolean = false
   message:string = '';
    
+  
+
   public check(){ 
     this.busy =true;   
     this.backend.signin(this.person.userName.toString() , this.person.loginpassword.toString()).subscribe(r=>
@@ -44,6 +49,7 @@ export class LoginComponent {
           }
         }
         this.busy = false;
+        
       });
       console.log(this.person);
     }

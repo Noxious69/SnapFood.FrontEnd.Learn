@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component,ViewChild,ElementRef ,Input } from '@angular/core';
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+declare var $: any;
+
 import { trigger , state , style , animate , transition} from '@angular/animations';
 import { BackendService } from './+services/backend.service';
 
@@ -13,12 +14,24 @@ import { BackendService } from './+services/backend.service';
 export class AppComponent {
   title = 'foodfront';
   person: any;
-
-  constructor(private modalService: NgbModal ) {}
+  constructor() {}
   
-  public open(modal: any): void {
-    this.modalService.open(modal);
+  @ViewChild('myModal') myModal:ElementRef | any;
+  openModal(){
+  $(this.myModal.nativeElement).modal('show')
+}
+closeModal(){
+  $(this.myModal.nativeElement).modal('hide')
+}
 
 
-  }
+
+  
+//   const myModal = document.getElementById('myModal')
+//   const myInput = document.getElementById('myInput')
+
+//   myModal.addEventListener('shown.bs.modal', () => {
+//   myInput.focus()
+// })
+
 }
