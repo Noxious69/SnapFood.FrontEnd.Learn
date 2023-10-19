@@ -97,34 +97,38 @@
                 انصراف
                 </button>
     
-              <button id="liveToastBtn" (click)="check()" class="btn btn-warning text-center text-light m-1" type="button" disabled>
+              <button id="liveToastBtn"  class="btn btn-warning text-center text-light m-1" type="button" disabled>
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                 تایید
               </button>
     
             </div>
             
-            <div class="card-footer text-center   " >
+            <div class="card-footer text-center" >
               <p>
                 اکانت نداری؟<a
-                  class="card-link text-decoration-none   "
+                  class="card-link text-decoration-none"
                   [routerLink]="'/signup'"
                   >کلیک کن</a
                 >
               </p>
             </div>
-            <div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    {{message}}
-                  </div>
-                  <div class="modal-footer">
-                    <button class="btn btn-primary "data-bs-dismiss="modal" aria-label="Close">close</button>
-                  </div>
-                </div>
-              </div>
-            </div> 
+
+           
+             <div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                 <div class="modal-content">
+                   <div class="modal-body">
+                     {{message}}
+                   </div>
+                   <div class="modal-footer">
+                     <button class="btn btn-primary "data-bs-dismiss="modal" aria-label="Close">close</button>
+                   </div>
+                 </div>
+               </div>
+             </div> 
+           
+
           </form>
         </div>
       </div>

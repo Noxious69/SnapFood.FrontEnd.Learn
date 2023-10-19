@@ -32,6 +32,7 @@ throw new Error('Method not implemented.');
         let result = r as any;
         if(result.isOk == false){
           this.message=(r as any).message;
+
         }
         else{
           sessionStorage.setItem('token' , result.token)
@@ -51,7 +52,6 @@ throw new Error('Method not implemented.');
         this.busy = false;
         
       });
-      console.log(this.person);
     }
   
 }
