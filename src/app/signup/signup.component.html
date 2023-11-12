@@ -22,7 +22,7 @@
                   aria-label="what is your name"
                   id="floatingInput"/>
                 
-                <label class="ms-2" for="floatingInput">نام خود را وارد کنید</label>
+                <label class="ms-2" for="floatingInput" style="font-size: small">نام خود را وارد کنید</label>
               </div>
     
               <div class="input-group mb-0 m-3  col">
@@ -42,7 +42,7 @@
                     placeholder=""
                     aria-label="enter your user name"/>
                   
-                  <label class="formcontrol ms-2 " for="floatingName">
+                  <label class="formcontrol ms-2 " for="floatingName" style="font-size: small">
                     یوزر نیم خود را وارد کنید</label>
                 </div>
               </div>
@@ -52,11 +52,12 @@
               <div  class="dis col mb-2 ms-3 mt-1">
                 <div
                   class="text-danger"
-                    
+                  style="font-size: small"
                   *ngIf="!person.fullName">
                   نام ضروری است
                 </div>
                 <div
+                  style="font-size: small"
                   class="text-danger"
                     >
                   {{ this.person.namemessage }}
@@ -65,6 +66,7 @@
                 
               <div  class="dis col mb-2 ms-3 mt-1">
                 <div
+                style="font-size: small"
                 class="text-danger d-flex "
                 *ngIf="!person.userName"
                   >
@@ -116,12 +118,14 @@
             <div class="row ">
               <div class="dis col mb-2 ms-3 mt-1">
                 <div
+                style="font-size: small"
                 class="text-danger"
                 *ngIf="!person.phone"
                   >
                 شماره تلفن اجباری است
               </div>
               <div
+                style="font-size: small"
                 class="text-danger"
                   >
                 {{ person.phonemessage }}
@@ -157,7 +161,7 @@
                 class="form-control"
                 placeholder=" "
                 name="password"/>
-              <div class="text-danger"   >
+              <div class="text-danger" style="font-size: small">
                 {{ this.person.passmessage }}
               </div>
               <label class="ms-2" for="floatingPassword">یک رمز عبور بسازید</label>
@@ -177,6 +181,9 @@
               <div class="text-danger" style="font-size: small">
                 {{ this.person.againmessage }}
               </div>
+              <div *ngIf="">
+
+              </div>
               <label class="ms-2" for="floatingPassword"
                 >رمز عبور خود را تایید کنید</label>
             </div>
@@ -189,7 +196,7 @@
                   type="radio"
                   name="flexRadioDefault"
                   id="checkCustomer"
-                  value="1"/>
+                  value="3"/>
     
                 <label class="form-check-label" for="flexRadioDefault1">
                   من مشتری هستم
@@ -202,7 +209,7 @@
                   type="radio"
                   name="flexRadioDefault"
                   id="checkBoos"
-                  value="2"/>
+                  value="1"/>
     
                 <label class="form-check-label" for="checkBoos">
                   من مدیر رستوران هستم
@@ -215,7 +222,7 @@
                   type="radio"
                   name="flexRadioDefault"
                   id="checkBoos"
-                  value="3"/>
+                  value="0"/>
     
                 <label class="form-check-label" for="checkBoos">
                   من ادمین هستم
@@ -223,7 +230,7 @@
               </div>
             </div>
     
-            <div *ngIf="person.boos == 2" class="form-floating d-flex row">
+            <div *ngIf="person.boos == 1" class="form-floating d-flex row">
               <div class="form-floating m-3 col"  >
                 <input
                   [class.is-invalid]="!this.person.nameOfResturant"
@@ -278,7 +285,7 @@
                 class="btn btn-outline-primary text-center m-2">
                 انصراف
               </button>
-              <button (click)="check()" class="btn btn-warning text-center text-light m-2">
+              <button (click)="register()" class="btn btn-warning text-center text-light m-2">
                 تایید
               </button>
             </div>

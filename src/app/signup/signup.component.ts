@@ -1,6 +1,8 @@
 import { Component,  } from '@angular/core';
 import {Person} from '../~Models/Person';
+import { Router } from '@angular/router';
 import { BackendsecurityService } from '../+services/backendsecurity.service';
+
 
 
 
@@ -10,16 +12,20 @@ import { BackendsecurityService } from '../+services/backendsecurity.service';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
-
+  busy:boolean = false;
   person: Person = new Person();
   
-  constructor(private backend:BackendsecurityService) {}
-  public check(){    
-    this.backend.signin(this.person.userName.toString() , this.person.password.toString()).subscribe(r=>
+  
+  constructor(private backend:BackendsecurityService , private router:Router) {}
+  public register(){    
+    this.busy = true;
+
+    this.backend.signup(this.person.userName??'' , this.person.password??'' , this.person.againpass??'' , this.person.boos??2 , this.person.fullName??'' , this.person.email??'', this.person.phone??'').subscribe(r=>
       {
-        console.log(JSON.stringify(r))
+        this.router.navigate(['/signin'])
       });
     }
+    
     
  
   

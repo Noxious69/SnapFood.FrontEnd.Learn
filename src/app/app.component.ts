@@ -13,7 +13,7 @@ import { BackendService } from './+services/backend.service';
 })
 export class AppComponent {
   title = 'foodfront';
-  person: any;
+  // person: any;
   constructor() {}
   
   @ViewChild('myModal') myModal:ElementRef | any;
